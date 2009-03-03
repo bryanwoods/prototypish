@@ -1,0 +1,91 @@
+prototypish
+===========
+
+This is a quick, disposable 'framework' that I used to rapidly prototype sites
+for my clients. It's useful for building brochure style sites with pages, as
+well as more in-depth database driven applications - I've used it in both cases.
+
+Photoshop really isn't a super efficient way to present a website concept, for
+many reasons, including:
+
+  1. It's text rendering is nothing like browsers.
+  2. It's not interactive like a website.
+  
+So I started doing my site concepts in pure HTML, CSS, and jQuery, anticipating
+that I'd eventually build the back-end interface in Rails. It's great, for a few
+pages, except there starts to be a lot of duplication of header files,
+style sheet links, etc. in the HTML files, just like in the days before serious
+server side scripting and includes.
+
+I could use Rails for prototyping the views, but it's a bit overkill. Also I
+don't want to use PHP, because... well I just don't like using PHP. Eventually I
+thought, why don't I just do everything in with Javascript? This is the answer
+to that question.
+
+Prototypish is intentionally designed to not require any server side processing,
+or scripting languages like PHP, Ruby or Python installed on a machine. You can
+load it on a USB drive, take it to any PC, Mac or Linux machine that has a plain
+text editor and a modern web browser (hopefully Firefox with Firebug and the Web
+Developer Toolbar) and get to work.
+
+How to use protoypish
+---------------------
+
+  - Clone or download Prototypish
+  - Edit shared/layouts.html
+  - Edit shared/header.html
+  - Edit css/application.css
+  - Create content files in 'content/my-new-page-name.html'
+  - Add links to '?page=my-new-page-name'
+  - Add jQuery behaviors to js/application.js (optional)
+
+Modifying the layout
+--------------------
+
+Prototypish comes with a simple layout file already, one that provides a great
+deal of flexibility in terms of style, while maintaining simplicity and semantic
+markup.
+
+If you want to add elements to the layout, edit 'shared/layout.html'. You may
+have to edit 'js/prototypish.js' depending on how you modify the layout.
+
+Adding pages
+------------
+
+For example, let's create a page called "Contact Us".
+
+First create the HTML file "content/contact-us.html". From your main page (or a
+shared navigation file), create a link to '?page=contact-us'. Amazing!
+
+Styling with CSS
+----------------
+
+Prototypish adds body classes and an id automatically based on the filename
+loaded. This can aid in separation and specificity in developing style sheets
+writing client side javascript. Also, if you name your pages right, it can make
+the move from Prototypish to app easier. For example, if I'm going to write an
+inventory application with many Items, and I'm thinking in terms of CRUD
+(Create, Read, Update, Delete), I might make the files items-index.html,
+items-new.html, items-show.html, items-edit.html.
+
+Prototypish will automatically give each page ids and classes according to the
+filename ('items-index.html' has the id of 'items-index' and the classes 'items'
+and 'index).
+
+Then I can use different types of selectors, i.e;
+
+  - body#items-show => this one page
+  - body.items.show => same as above
+  - body.items => pages related to items
+  - body.new => any page that creates a new object
+
+and style parts within and add jQuery behaviors accordingly.
+
+A final word
+------------
+
+I assume that most people who would use this would understand, but it needs to
+be said anyway - Prototypish is great for quickly and easily develop the
+interface, look, and feel of a website or application, but it is NOT a good
+thing to use on a real site. It is incredibly IN-accessible and UN-search-engine
+friendly.
